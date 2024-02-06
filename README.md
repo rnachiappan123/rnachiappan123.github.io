@@ -17,7 +17,7 @@ The smart features must be **configurable** based on the needs of the customer.
 
 My initial design revolved heavily around the use of the **Observer** pattern, where each component (*subscriber*) observed for state changes in other components (*publishers*), and communication between them took place in the form of *events*.
 
-![raw.githubusercontent.com/rnachiappan123/Zeiss-Freshers-Bootcamp-2024/main/Article/Original Design.svg](https://raw.githubusercontent.com/rnachiappan123/Zeiss-Freshers-Bootcamp-2024/main/Article/Original%20Design.svg)
+![https://raw.githubusercontent.com/rnachiappan123/rnachiappan123.github.io/main/images/Original%20Design.svg](https://raw.githubusercontent.com/rnachiappan123/rnachiappan123.github.io/main/images/Original%20Design.svg)
 
 For example, a timer observes the smart door for changes in its door state and starts the timer when the door is opened, or stops the timer when the door is closed. In return, the smart door observes the timer for when the timer elapses and notifies the smart features accordingly. This, however, is a **non-blocking** process - the smart door can continue to perform its other operations while observing the timer.
 ## Issues with the Design
@@ -34,7 +34,7 @@ The issues mentioned above can be addressed with the use of **event aggregator**
 
 The improved design uses an event aggregator which contains a dictionary of all the event types and their subscriber list. Subscribers can register themselves with the event aggregator using the *Subscribe* method which takes the event type and event *handler* as parameters. When an event is published, the event aggregator iterates through the list of subscribers for that particular event and invokes their event handlers.
 
-![raw.githubusercontent.com/rnachiappan123/Zeiss-Freshers-Bootcamp-2024/main/Article/Improved Design.svg](https://raw.githubusercontent.com/rnachiappan123/Zeiss-Freshers-Bootcamp-2024/main/Article/Improved%20Design.svg)
+![https://raw.githubusercontent.com/rnachiappan123/rnachiappan123.github.io/main/images/Improved%20Design.svg](https://raw.githubusercontent.com/rnachiappan123/rnachiappan123.github.io/main/images/Improved%20Design.svg)
 
 Here, *SmartDoor* publishes *DoorOpened* and *DoorClosed* events. *TimerController* subscribes to those events, starts/stops the timer, and publishes the *TimerElapsed* event when the timer runs out. *BuzzerAlert*, *PagerAlert*, and *AutoClose* subscribe to this *TimerElapsed* event to execute their respective actions.
 
