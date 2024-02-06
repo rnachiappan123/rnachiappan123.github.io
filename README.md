@@ -44,6 +44,8 @@ Plug-in and plug-out of components is also possible without violating open-close
 
 ## Learning Outcomes
 
+By completing this assignment, I was able to understand how event aggregator design pattern can simplify the design of even-driven programs. I learned about the advantages and limitations of this pattern, when to (and when not to) use event aggregators. Finally, I also learned about the concept of singleton classes and why event aggregator class should be made singleton.
+
 ### Desirable features of Event Aggregator Design Pattern
 
 1. *Simplified Communication*. Communication between various components can be extracted into a single place, making it easier to understand, maintain, and test the code.
